@@ -13,7 +13,7 @@ const PrivateRoute = ({ element, redirectTo = '/login', ...rest }) => {
     // Verifica se o token está presente e válido
     const verifyToken = async () => {
       try {
-        const response = await axios.get('http://localhost:8989/api/me', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/me`, {
           headers: { Authorization: `Bearer ${token}` },
         })
 

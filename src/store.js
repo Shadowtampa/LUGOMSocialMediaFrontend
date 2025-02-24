@@ -6,8 +6,8 @@ import { thunk } from 'redux-thunk' // Corrigindo a importação
 const initialState = {
   sidebarShow: true,
   theme: 'light',
-  isAuthenticated: !!localStorage.getItem('accessToken'), // Verifica se o token existe e não é vazio
-  token: localStorage.getItem('accessToken') || '',
+  isAuthenticated: !!localStorage.getItem(import.meta.env.VITE_TOKEN_STORAGE_KEY), // Verifica se o token existe e não é vazio
+  token: localStorage.getItem(import.meta.env.VITE_TOKEN_STORAGE_KEY) || '',
 }
 
 // Redutor para gerenciar o estado global
@@ -24,7 +24,7 @@ const changeState = (state = initialState, { type, ...rest }) => {
 export const setAuthenticated = (isAuthenticated, token = '') => {
   // Salva o token no localStorage, se fornecido
   if (token) {
-    localStorage.setItem('accessToken', token)
+    localStorage.setItem(import.meta.env.VITE_TOKEN_STORAGE_KEY, token)
   }
 
   return {
@@ -36,7 +36,7 @@ export const setAuthenticated = (isAuthenticated, token = '') => {
 
 // Ação assíncrona para verificar a validade do token
 export const checkTokenValidity = () => async (dispatch) => {
-  const token = localStorage.getItem('accessToken')
+  const token = localStorage.getItem(import.meta.env.VITE_TOKEN_STORAGE_KEY)
 
   if (!token) {
     dispatch(setAuthenticated(false)) // Caso não haja token
@@ -44,7 +44,7 @@ export const checkTokenValidity = () => async (dispatch) => {
   }
 
   try {
-    const response = await axios.get('http://localhost:8989/api/me', {
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -55,7 +55,7 @@ export const checkTokenValidity = () => async (dispatch) => {
     return true
   } catch (error) {
     // Se houver erro, remove o token e marca como não autenticado
-    localStorage.removeItem('accessToken')
+    localStorage.removeItem(import.meta.env.VITE_TOKEN_STORAGE_KEY)
     dispatch(setAuthenticated(false))
     return false
   }
