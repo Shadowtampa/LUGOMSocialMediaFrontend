@@ -36,6 +36,7 @@ const WidgetsBrand = (props) => {
 
   return (
     <CRow className={props.className} xs={{ gutter: 4 }}>
+      {/* Facebook Marketplace */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsD
           {...(props.withCharts && {
@@ -70,6 +71,7 @@ const WidgetsBrand = (props) => {
           }}
         />
       </CCol>
+      {/* Twitter / X */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsD
           {...(props.withCharts && {
@@ -104,6 +106,7 @@ const WidgetsBrand = (props) => {
           }}
         />
       </CCol>
+      {/* LinkedIn */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsD
           {...(props.withCharts && {
@@ -138,6 +141,7 @@ const WidgetsBrand = (props) => {
           }}
         />
       </CCol>
+      {/* Calendar */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsD
           color="warning"
@@ -170,6 +174,8 @@ const WidgetsBrand = (props) => {
           ]}
         />
       </CCol>
+      {/* Whatsapp */}
+      {/* Instagram */}
     </CRow>
   )
 }

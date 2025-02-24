@@ -39,6 +39,7 @@ const WidgetsDropdown = (props) => {
 
   return (
     <CRow className={props.className} xs={{ gutter: 4 }}>
+      {/* Visualizações em stories */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsA
           color="primary"
@@ -50,7 +51,7 @@ const WidgetsDropdown = (props) => {
               </span>
             </>
           }
-          title="Users"
+          title="Visualizações em Stories"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -129,6 +130,7 @@ const WidgetsDropdown = (props) => {
           }
         />
       </CCol>
+      {/* Reações à stories */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsA
           color="info"
@@ -140,7 +142,7 @@ const WidgetsDropdown = (props) => {
               </span>
             </>
           }
-          title="Income"
+          title="Reações à stories"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -218,6 +220,7 @@ const WidgetsDropdown = (props) => {
           }
         />
       </CCol>
+      {/* Interações com posts */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsA
           color="warning"
@@ -229,7 +232,7 @@ const WidgetsDropdown = (props) => {
               </span>
             </>
           }
-          title="Conversion Rate"
+          title="Interações com posts"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -290,6 +293,7 @@ const WidgetsDropdown = (props) => {
           }
         />
       </CCol>
+      {/* Salvamentos */}
       <CCol sm={6} xl={4} xxl={3}>
         <CWidgetStatsA
           color="danger"
@@ -301,7 +305,7 @@ const WidgetsDropdown = (props) => {
               </span>
             </>
           }
-          title="Sessions"
+          title="Salvamentos"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">

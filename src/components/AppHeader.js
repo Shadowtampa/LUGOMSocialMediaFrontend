@@ -13,6 +13,7 @@ import {
   CNavLink,
   CNavItem,
   useColorModes,
+  CDropdownDivider,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import {
@@ -57,34 +58,32 @@ const AppHeader = () => {
               Dashboard
             </CNavLink>
           </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">Users</CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">Settings</CNavLink>
-          </CNavItem>
-        </CHeaderNav>
-        <CHeaderNav className="ms-auto">
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilBell} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilList} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilEnvelopeOpen} size="lg" />
-            </CNavLink>
-          </CNavItem>
+
+          <CDropdown variant="nav-item" popper={false}>
+            <CDropdownToggle color="secondary">Recursos</CDropdownToggle>
+            <CDropdownMenu>
+              <CNavLink to="/resources/products/" as={NavLink}>
+                Produtos
+              </CNavLink>
+              <CNavLink to="/resources/promotions/" as={NavLink}>
+                Promoções
+              </CNavLink>
+            </CDropdownMenu>
+          </CDropdown>
+
+          <CDropdown variant="nav-item" popper={false}>
+            <CDropdownToggle color="secondary">Social Media</CDropdownToggle>
+            <CDropdownMenu>
+              <CNavLink to="/socialmedia/advertisement/" as={NavLink}>
+                Propagandas
+              </CNavLink>
+              <CNavLink to="/socialmedia/socials/" as={NavLink}>
+                Redes Sociais
+              </CNavLink>
+            </CDropdownMenu>
+          </CDropdown>
         </CHeaderNav>
         <CHeaderNav>
-          <li className="nav-item py-1">
-            <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
-          </li>
           <CDropdown variant="nav-item" placement="bottom-end">
             <CDropdownToggle caret={false}>
               {colorMode === 'dark' ? (
