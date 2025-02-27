@@ -56,6 +56,12 @@ const Dashboard = () => {
     console.log(`Criar propaganda para o produto ID: ${productId}`)
   }
 
+  const handleEditPromotion = (productData) => {
+    navigate(`/resources/products/edit/`, {
+      state: { product: productData }, // Envia o estado para a nova rota
+    }) // Ajuste para a URL correta onde você irá editar a propaganda
+  }
+
   const handleAddProduct = () => {
     navigate('/resources/products/add')
   }
@@ -102,7 +108,7 @@ const Dashboard = () => {
                   <CCardText>
                     Disponível: <strong>{product.available ? 'Sim' : 'Não'}</strong>
                   </CCardText>
-                  <CButton color="primary" size="sm" onClick={() => handleCreateAd(product.id)}>
+                  <CButton color="primary" size="sm" onClick={() => handleEditPromotion(product)}>
                     Editar Produto
                   </CButton>
                   <CButton color="secondary" size="sm" onClick={() => handleCreateAd(product.id)}>
@@ -128,7 +134,7 @@ const Dashboard = () => {
         color="success"
         shape="rounded-pill"
         size="lg"
-        className="position-fixed bottom-3 end-0 m-4 shadow-lg d-flex align-items-center justify-content-center"
+        className="position-fixed bottom-0 end-0 m-4 shadow-lg d-flex align-items-center justify-content-center"
         onClick={handleAddProduct}
         style={{ width: '60px', height: '60px' }}
       >

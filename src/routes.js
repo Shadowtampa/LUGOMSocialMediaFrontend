@@ -55,6 +55,7 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 //Resources
 const Products = React.lazy(() => import('./views/resources/Products'))
 const ProductForm = React.lazy(() => import('./views/forms/product/ProductForm'))
+const EditProductForm = React.lazy(() => import('./views/forms/product/EditProductForm'))
 
 const routes = [
   { path: '/', exact: true, element: Dashboard },
@@ -62,6 +63,12 @@ const routes = [
   { path: '/dashboard', element: Dashboard },
   { path: '/resources/products', name: 'Produtos', element: Products, exact: true },
   { path: '/resources/products/add', name: 'Adicionar Produto', element: ProductForm, exact: true },
+  {
+    path: '/resources/products/edit/',
+    name: 'Editar Produto',
+    element: EditProductForm,
+    exact: true,
+  },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
